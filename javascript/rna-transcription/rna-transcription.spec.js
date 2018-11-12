@@ -1,40 +1,40 @@
-import { toRna } from './rna-transcription';
+import { ADN } from './rna-transcription';
 
 describe('Transcriptor', () => {
   test('empty rna sequence', () => {
-    expect(toRna('')).toEqual('');
+    expect(new ADN('').toRna()).toEqual('');
   });
 
-  xtest('transcribes cytosine to guanine', () => {
-    expect(toRna('C')).toEqual('G');
+  test('transcribes cytosine to guanine', () => {
+    expect(new ADN('C').toRna()).toEqual('G');
   });
 
-  xtest('transcribes guanine to cytosine', () => {
-    expect(toRna('G')).toEqual('C');
+  test('transcribes guanine to cytosine', () => {
+    expect(new ADN('G').toRna()).toEqual('C');
   });
 
-  xtest('transcribes adenine to uracil', () => {
-    expect(toRna('A')).toEqual('U');
+  test('transcribes adenine to uracil', () => {
+    expect(new ADN('A').toRna()).toEqual('U');
   });
 
-  xtest('transcribes thymine to adenine', () => {
-    expect(toRna('T')).toEqual('A');
+  test('transcribes thymine to adenine', () => {
+    expect(new ADN('T').toRna()).toEqual('A');
   });
 
-  xtest('transcribes all dna nucleotides to their rna complements', () => {
-    expect(toRna('ACGTGGTCTTAA'))
+  test('transcribes all dna nucleotides to their rna complements', () => {
+    expect(new ADN('ACGTGGTCTTAA').toRna())
       .toEqual('UGCACCAGAAUU');
   });
 
-  xtest('correctly handles invalid input', () => {
-    expect(() => toRna('U')).toThrow(new Error('Invalid input DNA.'));
+  test('correctly handles invalid input', () => {
+    expect(() => new ADN('U').toRna()).toThrow(new Error('Invalid input DNA.'));
   });
 
-  xtest('correctly handles completely invalid input', () => {
-    expect(() => toRna('XXX')).toThrow(new Error('Invalid input DNA.'));
+  test('correctly handles completely invalid input', () => {
+    expect(() => new ADN('XXX').toRna()).toThrow(new Error('Invalid input DNA.'));
   });
 
-  xtest('correctly handles partially invalid input', () => {
-    expect(() => toRna('ACGTXXXCTTAA')).toThrow(new Error('Invalid input DNA.'));
+  test('correctly handles partially invalid input', () => {
+    expect(() => new ADN('ACGTXXXCTTAA').toRna()).toThrow(new Error('Invalid input DNA.'));
   });
 });
