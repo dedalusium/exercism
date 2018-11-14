@@ -7,12 +7,14 @@ export default class Triangle {
   }
 
   kind() {
-    let type = '';
+    let type = 'isosceles';
     this.checkIllegalsSideLength();
     this.checkEmptyTriangle();
     this.checkTriangleInequality();
     if (this.isEquilateral()) {
       type = 'equilateral';
+    } else if (this.isScalene()) {
+      type = 'scalene';
     }
     return type;
   }
@@ -45,7 +47,7 @@ export default class Triangle {
     return this.sides.every(side => side === this.sides[0]);
   }
 
-  isIsosceles() {
-
+  isScalene() {
+    return new Set(this.sides).size === this.sides.length;
   }
 }
