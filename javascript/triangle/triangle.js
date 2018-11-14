@@ -9,6 +9,7 @@ export default class Triangle {
   kind() {
     let type = '';
     this.checkIllegalsSideLength();
+    this.checkEmptyTriangle();
     this.checkTriangleInequality();
     if (this.isEquilateral()) {
       type = 'equilateral';
@@ -34,10 +35,17 @@ export default class Triangle {
     }, this); // fixme: this param shouldn't be required
   }
 
+  checkEmptyTriangle() {
+    if (this.sides.reduce((sum, nextSide) => sum + nextSide) === 0) {
+      throw new Error('Empty triangle are not allowed');
+    }
+  }
+
   isEquilateral() {
     return this.sides.every(side => side === this.sides[0]);
   }
 
   isIsosceles() {
+
   }
 }
