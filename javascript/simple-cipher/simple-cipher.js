@@ -26,25 +26,24 @@ export class Cipher {
     }
   }
 
-  encode(decryptedMsg) {
-    return Array.from(decryptedMsg)
+
+
+  shift(msg, compute) {
+    return Array.from(msg)
       .map(
-        (decryptedLetter, i) =>
+        (letter, i) =>
           alphabet[
-            overflowInteger(getCharCode(decryptedLetter) + getCharCode(this.key[i % this.key.length]), alphabet.length)
+          overflowInteger(compute(getCharCode(letter), getCharCode(this.key[i % this.key.length])), alphabet.length)
           ]
       )
       .join('');
   }
 
+  encode(decryptedMsg) {
+    return this.shift(decryptedMsg, (a, b) => a + b);
+  }
+
   decode(encryptedMsg) {
-    return Array.from(encryptedMsg)
-      .map(
-        (encryptedLetter, i) =>
-          alphabet[
-            overflowInteger(getCharCode(encryptedLetter) - getCharCode(this.key[i % this.key.length]), alphabet.length)
-          ]
-      )
-      .join('');
+    return this.shift(encryptedMsg, (a, b) => a - b);
   }
 }
