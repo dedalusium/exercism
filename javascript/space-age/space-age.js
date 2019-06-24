@@ -1,8 +1,3 @@
-//
-// This is only a SKELETON file for the 'Space Age' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 export const age = (planet, ageInSecond) => Number.parseFloat(Number.parseFloat(ageInSecond / orbitalPeriodInSeconds(planet)).toFixed(2));
 
 const PERIODS_IN_EARTH_YEARS = {
