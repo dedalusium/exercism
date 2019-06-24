@@ -1,4 +1,4 @@
-export const age = (planet, ageInSecond) => Number.parseFloat(Number.parseFloat(ageInSecond / orbitalPeriodInSeconds(planet)).toFixed(2));
+export const age = (planet, ageInSecond) => Number.parseFloat((ageInSecond / orbitalPeriodInSeconds(planet)).toFixed(2));
 
 const PERIODS_IN_EARTH_YEARS = {
   earth: 1,
