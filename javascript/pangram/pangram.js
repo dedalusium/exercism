@@ -1,8 +1,6 @@
-//
-// This is only a SKELETON file for the 'Pangram' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
-export const isPangram = () => {
-  throw new Error("Remove this statement and implement this function");
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+export const isPangram = (rawSentence) => {
+  const lowerCleanedSentence = rawSentence.toLowerCase().replace(/[^a-zA-Z]/g, '');
+  const withoutDuplicates = new Set(lowerCleanedSentence);
+  return Array.from(withoutDuplicates).every((value) => Array.from(alphabet).includes(value));
 };
