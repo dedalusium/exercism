@@ -1,15 +1,11 @@
-//
-// This is only a SKELETON file for the 'Matrix' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 export class Matrix {
-  constructor() {
-    throw new Error("Remove this statement and implement this function");
+  constructor(rawMatrix) {
+    const splited = rawMatrix.split("\n");
+    this.row = splited.map(rowAsString => rowAsString.split(' ').map(c => Number.parseInt(c)));
   }
 
   get rows() {
-    throw new Error("Remove this statement and implement this function");
+    return this.row;
   }
 
   get columns() {
