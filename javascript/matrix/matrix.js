@@ -1,14 +1,26 @@
 export class Matrix {
   constructor(rawMatrix) {
-    const splited = rawMatrix.split("\n");
-    this.row = splited.map(rowAsString => rowAsString.split(' ').map(c => Number.parseInt(c)));
+    this.rawMatrix = rawMatrix;
   }
 
   get rows() {
-    return this.row;
+    const splited = this.rawMatrix.split("\n");
+    this._rows = splited
+      .map(rowAsString => rowAsString
+        .split(' ')
+        .map(c => Number.parseInt(c))
+      );
+    return this._rows;
   }
 
   get columns() {
-    throw new Error("Remove this statement and implement this function");
+    this._columns = []
+    for (let i = 0; i < this.rows[0].length; i++) {
+      this._columns.push([]);
+      this.rows.forEach(r => {
+        this._columns[i].push(r[i]);
+      });      
+    }
+    return this._columns;
   }
 }
