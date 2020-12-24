@@ -11,7 +11,7 @@ class Robot:
 
     @staticmethod
     def generate_prefix():
-        random_capital_letters = [ascii_uppercase[random.randint(0, 25)] for x in range(2)]
+        random_capital_letters = random.sample(ascii_uppercase, 2)
         prefix = ''.join(random_capital_letters)
         return prefix
 
