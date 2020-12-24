@@ -2,14 +2,15 @@ def latest(scores):
     scores.reverse()
     return scores[0]
 
-
-def personal_best(scores):
+def invert_sort(scores):
     scores.sort()
     scores.reverse()
-    return scores[0]
+    return scores[:]
+
+
+def personal_best(scores):
+    return invert_sort(scores)[0]
 
 
 def personal_top_three(scores):
-    scores.sort()
-    scores.reverse()
-    return scores[0:3]
+    return invert_sort(scores)[0:3]
