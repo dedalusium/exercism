@@ -49,3 +49,4 @@ class RobotNameTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    print(Robot.every_name)
