@@ -2,6 +2,7 @@ def latest(scores):
     scores.reverse()
     return scores[0]
 
+
 def invert_sort(scores):
     scores.sort()
     scores.reverse()
