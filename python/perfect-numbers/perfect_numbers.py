@@ -1,6 +1,4 @@
 def split_in_proper_dividers(number):
-    if number <= 0:
-        raise ValueError(number)
     dividers = []
     d = number - 1
     while d > 0:
@@ -12,6 +10,8 @@ def split_in_proper_dividers(number):
 
 
 def classify(number):
+    if number <= 0:
+        raise ValueError(number)
     aliquot_sum = sum(split_in_proper_dividers(number))
     if aliquot_sum > number:
         return 'abundant'
