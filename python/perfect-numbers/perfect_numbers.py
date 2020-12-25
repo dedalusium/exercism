@@ -1,10 +1,8 @@
 def split_in_proper_dividers(number):
     dividers = []
-    d = number - 1
-    while d > 0:
+    for d in range(1, number):
         if number % d == 0:
             dividers.append(d)
-        d -= 1
     dividers.sort()
     return dividers
 
