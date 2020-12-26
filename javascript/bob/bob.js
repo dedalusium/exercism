@@ -1,12 +1,17 @@
 export const hey = (message) => {
-  const cleanMessage = message.trim();
-  if (!cleanMessage) {
+  const trim = message
+    .trim();
+  const cleanMessage = trim
+    .replace(/[^a-zA-Z?!]/g, '');
+
+  if (!trim) {
     return 'Fine. Be that way!';
   }
   // need to fix acronym and numbers
-  const isYelling = /(?!.*[a-z].*)[A-Z]{4,}/
+  const isYellingQuestion = /^[A-Z\s]+\?$/
+  const isYelling = /^[A-Z\s]+!*$/
   const isQuestion = /\?$/
-  if (isQuestion.test(cleanMessage) && isYelling.test(cleanMessage)) {
+  if (isYellingQuestion.test(cleanMessage)) {
     return 'Calm down, I know what I\'m doing!';
   } else if (isQuestion.test(cleanMessage)) {
     return 'Sure.';
