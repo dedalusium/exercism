@@ -12,7 +12,7 @@ class PhoneNumber:
             raise ValueError(number)
         if len(cleaned_number) == 11 and cleaned_number[0] != '1':
             raise ValueError(number)
-        self.number = cleaned_number[len(cleaned_number) - 10:]
+        self.number = cleaned_number[-10:]
         area_code = self.number[:3:]
         exchange_code = self.number[3:6:]
         if area_code.startswith('0') or area_code.startswith('1'):
