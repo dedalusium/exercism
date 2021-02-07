@@ -1,9 +1,8 @@
+from functools import reduce
+
+
 def distance(strand_a, strand_b):
     strand_length = len(strand_a)
-    hamming_distance = 0
     if strand_length != len(strand_b):
         raise ValueError('strand are not equal length')
-    for i in range(0, strand_length):
-        if strand_a[i] != strand_b[i]:
-            hamming_distance += 1
-    return hamming_distance
+    return reduce(lambda acc, next_pair: acc+(1, 0)[next_pair[0] == next_pair[1]], zip(strand_a, strand_b), 0)
