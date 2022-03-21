@@ -1,10 +1,9 @@
+"""
+Guido's Gorgeous Lasagna exercism module
+"""
 EXPECTED_BAKE_TIME = 40
 PREPARATION_TIME = 2
-# TODO: consider defining the 'PREPARATION_TIME' constant
-#       equal to the time it takes to prepare a single layer
 
-
-# TODO: define the 'bake_time_remaining()' function
 def bake_time_remaining(elapsed_bake_time = 0):
     """Calculate the bake time remaining.
 
